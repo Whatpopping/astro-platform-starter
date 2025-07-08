@@ -1,0 +1,92 @@
+/* Custom animations and styles for EchoVibe */
+@keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8b5cf6;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7c3aed;
+}
+
+/* Smooth transitions */
+* {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Music visualizer animation */
+.music-bar {
+    width: 3px;
+    height: 20px;
+    background: linear-gradient(to top, #8b5cf6, #ec4899);
+    margin: 0 1px;
+    animation: music-bounce 1s ease-in-out infinite;
+}
+
+.music-bar:nth-child(1) { animation-delay: 0.1s; }
+.music-bar:nth-child(2) { animation-delay: 0.2s; }
+.music-bar:nth-child(3) { animation-delay: 0.3s; }
+.music-bar:nth-child(4) { animation-delay: 0.4s; }
+.music-bar:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes music-bounce {
+    0%, 100% { transform: scaleY(0.3); }
+    50% { transform: scaleY(1); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+    }
+    
+    .main-content.sidebar-open {
+        margin-left: 256px !important;
+    }
+}
+
+/* Loading spinner */
+.spinner {
+    border: 3px solid rgba(139, 92, 246, 0.3);
+    border-radius: 50%;
+    border-top: 3px solid #8b5cf6;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes music-bounce {
+    0%, 100% { transform: scaleY(0.3); }
+    50% { transform: scaleY(1); }
+}
